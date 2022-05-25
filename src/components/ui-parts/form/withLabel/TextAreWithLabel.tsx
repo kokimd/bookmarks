@@ -1,17 +1,24 @@
-import React, { ChangeEvent } from 'react'
+import { ChangeEvent, FC } from 'react'
 import { Typography } from 'src/components/ui-elements/Typography/Typography'
+import { PreviewSwitch } from '../PreviewSwitch'
 
-export const TextAreWithLabel = ({
+type Props = {
+  placeholder: string
+  value: string
+  isPreview: boolean
+  setIsPreview: React.Dispatch<React.SetStateAction<boolean>>
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
+  classes?: string[]
+}
+
+export const TextAreWithLabel: FC<Props> = ({
   placeholder,
   value,
   onChange,
+  isPreview,
+  setIsPreview,
   classes = [],
-}: {
-  placeholder: string
-  value: string
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
-  classes?: string[]
-}): JSX.Element => {
+}) => {
   const className = [
     'rounded-md',
     'border-2',
@@ -26,8 +33,11 @@ export const TextAreWithLabel = ({
   ].join(' ')
 
   return (
-    <div className="-mb-1.5">
-      <Typography variant="h6">メモ</Typography>
+    <div className="relative -mb-1.5">
+      <div className="flex  justify-between">
+        <Typography variant="h6">メモ</Typography>
+        <PreviewSwitch isPreview={isPreview} setIsPreview={setIsPreview} />
+      </div>
       <textarea
         placeholder={placeholder}
         value={value}
