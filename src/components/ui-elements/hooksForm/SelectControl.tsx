@@ -73,14 +73,13 @@ const SelectControlMemo = ({
     <Controller
       control={control}
       name={inputName}
-      rules={{ required: '入力必須です！！' }}
       render={({ field: { onChange, name, value, onBlur } }) => (
         <ReactSelect
           id="select"
           instanceId="select"
           options={options}
           styles={customStyles}
-          placeholder="TypeScript"
+          placeholder="複数選択できます。"
           onChange={onChange}
           onBlur={onBlur}
           name={name}

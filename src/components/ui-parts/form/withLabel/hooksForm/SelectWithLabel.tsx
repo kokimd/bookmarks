@@ -13,8 +13,6 @@ export const SelectWithLabel = ({
     formState: { errors },
   } = useFormContext()
 
-  console.log(errors)
-
   return (
     <div>
       <Typography variant="h6">{label}</Typography>

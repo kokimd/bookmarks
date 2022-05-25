@@ -5,7 +5,7 @@ import { DefaultLayout } from 'src/components/ui-parts/layout/DefaultLayout'
 
 const MyPage: NextPage = () => {
   return (
-    <DefaultLayout title="MyPage">
+    <DefaultLayout title="マイページ">
       <div className="container">
         <div className="mt-16 flex justify-center gap-16 ">
           <Link

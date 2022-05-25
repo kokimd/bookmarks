@@ -15,7 +15,7 @@ export const Header: FC = () => {
             Login
           </Link>
           <Link
-            href="/register"
+            href="/mypage/create"
             classes={['text-white bg-asset-green rounded-md']}
           >
             Add New
