@@ -20,7 +20,7 @@ const options = [
 type FormData = {
   url: string
   title: string
-  category: Array<{ value: ''; label: '' }>
+  categories: Array<{ value: ''; label: '' }>
   comprehension: 0 | 1 | 2 | 3 | 4
   isRead: boolean
 }
@@ -31,7 +31,7 @@ export const EditForm: FC = () => {
   const defaultValues: FormData = {
     url: '',
     title: '',
-    category: [],
+    categories: [],
     comprehension: 0,
     isRead: false,
   }
@@ -74,7 +74,7 @@ export const EditForm: FC = () => {
           inputName={'title'}
           classes={['py-4 border mt-8']}
         />
-        <SelectWithLabel label={'カテゴリー'} inputName={'category'} />
+        <SelectWithLabel label={'カテゴリー'} inputName={'categories'} />
         <RangeInputWithLabel
           label={'理解度'}
           inputName={'comprehension'}

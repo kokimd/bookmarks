@@ -34,5 +34,5 @@ export const LoginSchema = yup.object().shape({
 export const EditSchema = yup.object().shape({
   url: yup.string().required(`URL${REQUIRED}`).url(URL),
   title: yup.string().required(`タイトル${REQUIRED}`),
-  category: yup.array().min(1, `カテゴリー${REQUIRED}`),
+  categories: yup.array().min(1, `カテゴリー${REQUIRED}`),
 })
