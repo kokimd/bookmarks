@@ -5,10 +5,12 @@ const LinkMemo = ({
   children,
   href,
   classes = [],
+  target = '_self',
 }: {
   children: ReactNode
   href: string
   classes?: string[]
+  target?: '_blank' | '_self' | undefined
 }): JSX.Element => {
   const className = [
     'block',
@@ -21,7 +23,9 @@ const LinkMemo = ({
 
   return (
     <NextLink href={href}>
-      <a className={className}>{children}</a>
+      <a target={target} className={className}>
+        {children}
+      </a>
     </NextLink>
   )
 }
