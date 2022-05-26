@@ -14,7 +14,7 @@ export const DefaultLayout: FC<Props> = ({ title, children }) => {
         <title>{title}</title>
       </Head>
       <Header />
-      <main className="flex w-screen flex-1 flex-col items-center justify-center bg-asset-beige">
+      <main className="flex w-screen flex-1 flex-col items-center bg-asset-beige">
         {children}
       </main>
     </div>
