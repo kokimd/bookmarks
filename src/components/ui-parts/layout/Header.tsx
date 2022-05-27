@@ -11,7 +11,10 @@ export const Header: FC = () => {
           </Link>
         </div>
         <div className="ml-auto flex gap-8">
-          <Link href="/" classes={['text-white bg-asset-green rounded-md']}>
+          <Link
+            href="/login"
+            classes={['text-white bg-asset-green rounded-md']}
+          >
             Login
           </Link>
           <Link
@@ -21,7 +24,7 @@ export const Header: FC = () => {
             Add New
           </Link>
           <Link
-            href="/mypage"
+            href="/mypage/bookmarks"
             classes={['text-white bg-asset-green rounded-md']}
           >
             MyPage
