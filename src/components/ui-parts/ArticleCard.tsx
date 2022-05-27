@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import React, { FC } from 'react'
+import { FC } from 'react'
+import useStore from 'src/store'
 import { Bookmark } from 'src/utils/types'
 import { PencilIcon } from '../ui-elements/Icons/PencilIcon'
 import { Link } from '../ui-elements/Link'
@@ -11,6 +12,7 @@ type Props = {
 
 export const ArticleCard: FC<Props> = ({ bookmark }) => {
   const { title, categories, url } = bookmark
+  const setSearchWord = useStore((state) => state.setSearchWord)
 
   return (
     <div className="relative flex w-5/12 items-center justify-between rounded-md bg-white p-8 shadow-md">
@@ -18,6 +20,7 @@ export const ArticleCard: FC<Props> = ({ bookmark }) => {
         <div className="flex gap-4">
           {categories.map((category, i) => (
             <Typography
+              onClick={() => setSearchWord(category.label)}
               key={category.value + i}
               classes={[
                 'bg-asset-orange text-white font-semibold py-2 px-2 rounded-md shadow-md hover:opacity-50 cursor-pointer',
