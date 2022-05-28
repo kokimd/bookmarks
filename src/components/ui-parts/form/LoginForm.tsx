@@ -1,28 +1,12 @@
-import { FC, useState } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { LoginSchema } from 'src/utils/validationSchema'
+import { FC } from 'react'
+import { FormProvider } from 'react-hook-form'
+import { useAuthMutation } from 'src/components/hooks/reactQuery/useMutateAuth'
 import { Button } from '../../ui-elements/button/Button'
 import { Typography } from '../../ui-elements/Typography/Typography'
 import { TextInput } from './TextInput'
 
-type LoginData = {
-  email: string
-  password: string
-}
-
 export const LoginForm: FC = () => {
-  const [isLogin, setIsLogin] = useState(true)
-
-  const defaultValues = {
-    email: '',
-    password: '',
-  }
-
-  const methods = useForm<LoginData>({
-    defaultValues,
-    resolver: yupResolver(LoginSchema),
-  })
+  const { isLogin, setIsLogin, methods, authSubmit } = useAuthMutation()
 
   return (
     <div className="mx-auto my-12 w-full rounded-lg bg-white p-8 text-center shadow-md md:w-1/2 lg:w-1/4">
@@ -32,8 +16,16 @@ export const LoginForm: FC = () => {
       <FormProvider {...methods}>
         <form
           className="mt-16 flex flex-col gap-8"
-          onSubmit={methods.handleSubmit((data) => console.log(data))}
+          onSubmit={methods.handleSubmit(authSubmit)}
         >
+          {/* {!isLogin && (
+            <TextInput
+              type="username"
+              placeholder="Username"
+              inputName={'username'}
+              classes={['py-2']}
+            />
+          )} */}
           <TextInput
             type="email"
             placeholder="Email"
