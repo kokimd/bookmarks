@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { LoginSchema } from 'src/utils/validationSchema'
 
-export const useAuthMutation = () => {
+export const useMutateAuth = () => {
   const [isLogin, setIsLogin] = useState(true)
 
   // 新規登録
@@ -38,6 +38,12 @@ export const useAuthMutation = () => {
     },
   )
 
+  // ログアウト
+  const logout = async () => {
+    const { error } = await supabase.auth.signOut()
+    if (error) throw new Error(error.message)
+  }
+
   const defaultValues = {
     email: '',
     password: '',
@@ -63,5 +69,6 @@ export const useAuthMutation = () => {
     authSubmit,
     registerMutate,
     loginMutate,
+    logout,
   }
 }
