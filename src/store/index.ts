@@ -1,7 +1,10 @@
+import { Session } from '@supabase/supabase-js'
 import { Bookmark } from 'src/utils/types'
 import create from 'zustand'
 
 type State = {
+  session: Session | null
+  setSession: (payload: Session | null) => void
   searchWord: string
   setSearchWord: (payload: string) => void
   deleteSearchWord: () => void
@@ -14,6 +17,8 @@ type State = {
 }
 
 const useStore = create<State>((set) => ({
+  session: null,
+  setSession: (payload) => set({ session: payload }),
   searchWord: '',
   setSearchWord: (payload) => set({ searchWord: payload }),
   deleteSearchWord: () => set({ searchWord: '' }),
