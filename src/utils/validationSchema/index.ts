@@ -1,13 +1,8 @@
 import * as yup from 'yup'
 
-// 共通
 const REQUIRED = 'は必須項目です。'
-const MIN = '以上で入力してください。'
 const MAX = '以内で入力してください。'
-const NUMBER = '半角数字で入力してください。'
-const KANA = 'カタカナで入力してください。'
 
-// 個別
 const EMAIL = '正しいメールアドレスを入力してください。'
 const URL = '正しいURLを入力してください。'
 const PASSWORD_MIN = '最低８文字入力してください。'
@@ -17,6 +12,7 @@ const PASSWORD = 'パスワードは半角英数字で入力してください�
 
 // ログイン
 export const LoginSchema = yup.object().shape({
+  // username: yup.string().required(`ユーザー名${REQUIRED}`),
   email: yup //
     .string()
     .email(EMAIL)
@@ -25,9 +21,9 @@ export const LoginSchema = yup.object().shape({
     .string()
     .min(8, PASSWORD_MIN)
     .max(255, `255文字${MAX}`)
-    .matches(/(?=.*[a-z])/, PASSWORD_LOWER) // 英字を含んでいるか
-    .matches(/(?=.*[0-9])/, PASSWORD_NUMBER) // 数字を含んでいるか
-    .matches(/^[0-9a-zA-Z]+$/, PASSWORD) // 半角英数字チェック(空白文字NG)
+    .matches(/(?=.*[a-z])/, PASSWORD_LOWER) // 英字
+    .matches(/(?=.*[0-9])/, PASSWORD_NUMBER) //数字
+    .matches(/^[0-9a-zA-Z]+$/, PASSWORD) // 半角英数字
     .required(`パスワード${REQUIRED}`),
 })
 
