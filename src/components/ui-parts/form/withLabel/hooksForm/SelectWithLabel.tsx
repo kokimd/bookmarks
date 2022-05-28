@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { SelectControl } from 'src/components/ui-elements/hooksForm/SelectControl'
 import { Typography } from 'src/components/ui-elements/Typography/Typography'
 
-export const SelectWithLabel = ({
+const SelectWithLabelMemo = ({
   label,
   inputName,
 }: {
@@ -23,3 +24,5 @@ export const SelectWithLabel = ({
     </div>
   )
 }
+
+export const SelectWithLabel = memo(SelectWithLabelMemo)

@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { RangeInputControl } from 'src/components/ui-elements/hooksForm/RangeInputControl'
 import { Typography } from 'src/components/ui-elements/Typography/Typography'
 
-export const RangeInputWithLabel = ({
+const RangeInputWithLabelMemo = ({
   label,
   inputName,
   min,
@@ -34,3 +35,5 @@ export const RangeInputWithLabel = ({
     </div>
   )
 }
+
+export const RangeInputWithLabel = memo(RangeInputWithLabelMemo)

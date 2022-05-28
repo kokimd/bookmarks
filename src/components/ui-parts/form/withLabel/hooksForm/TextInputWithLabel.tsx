@@ -1,9 +1,9 @@
-import React from 'react'
+import { memo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { InputControl } from 'src/components/ui-elements/hooksForm/InputControl'
 import { Typography } from 'src/components/ui-elements/Typography/Typography'
 
-export const TextInputWithLabel = ({
+const TextInputWithLabelMemo = ({
   label,
   inputName,
   placeholder,
@@ -36,3 +36,5 @@ export const TextInputWithLabel = ({
     </div>
   )
 }
+
+export const TextInputWithLabel = memo(TextInputWithLabelMemo)
