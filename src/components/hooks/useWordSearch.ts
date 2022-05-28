@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useEffect } from 'react'
 import useStore from 'src/store'
 import { useQueryBookmarks } from './reactQuery/useQueryBookmarks'
 
