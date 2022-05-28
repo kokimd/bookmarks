@@ -7,3 +7,9 @@ export type Bookmark = {
   comprehension: number
   memo: string
 }
+
+export type AuthData = {
+  // username?: string
+  email: string
+  password: string
+}
