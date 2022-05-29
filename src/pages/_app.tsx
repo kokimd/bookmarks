@@ -1,10 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { useSession } from 'src/components/hooks/useSession'
+import { useSetSession } from 'src/components/hooks/useSession'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useSession()
+  useSetSession()
 
   const queryClient = new QueryClient({
     defaultOptions: {
