@@ -1,4 +1,4 @@
-import { memo, ReactNode, Suspense } from 'react'
+import { memo, ReactNode } from 'react'
 import { Map, ColorSetting, SizeSetting } from './settings'
 
 const ButtonMemo = ({
@@ -43,7 +43,7 @@ const ButtonMemo = ({
 
   return (
     <button className={className} onClick={onClick} type={type}>
-      <Suspense fallback={'Loading'}>{children}</Suspense>
+      {children}
     </button>
   )
 }

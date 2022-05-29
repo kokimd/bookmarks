@@ -48,7 +48,7 @@ const ColorSetting: Map[] = [
 ]
 
 const SizeSetting: Map[] = [
-  { key: 'small', class: ['py-2', 'px-4', 'text-sm'] },
+  { key: 'small', class: ['py-2', 'px-2', 'text-base'] },
   { key: 'medium', class: ['py-4', 'px-6', 'text-base'] },
   { key: 'large', class: ['py-4', 'px-8', 'text-lg'] },
 ]
