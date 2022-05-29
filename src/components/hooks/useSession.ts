@@ -2,8 +2,7 @@ import { useEffect } from 'react'
 import { supabase } from 'src/utils/supabase'
 import useStore from 'src/store'
 
-export const useSession = () => {
-  const session = useStore((state) => state.session)
+export const useSetSession = () => {
   const setSession = useStore((state) => state.setSession)
 
   useEffect(() => {
@@ -12,6 +11,4 @@ export const useSession = () => {
       setSession(session)
     })
   }, [setSession])
-
-  console.log(session)
 }

@@ -3,18 +3,17 @@ import { useWordSearch } from 'src/components/hooks/useWordSearch'
 import { Link } from 'src/components/ui-elements/Link'
 import { ArticleCard } from 'src/components/ui-parts/ArticleCard'
 import { WordSearchForm } from 'src/components/ui-parts/form/WordSearchForm'
-import { DefaultLayout } from 'src/components/ui-parts/layout/DefaultLayout'
+import { ProtectRoute } from 'src/components/ui-parts/layout/ProtectRoute'
 import { NoDataMessage } from 'src/components/ui-parts/NoDataMessage'
 
 const MyPage: NextPage = () => {
   // 自分が登録したブックマークを全件取得する
   // TODO: Pagination作成
-  // TODO: 検索フォームを作成
 
   const { searchedBookmarks } = useWordSearch()
 
   return (
-    <DefaultLayout title="マイページ">
+    <ProtectRoute title="マイページ">
       <div className="container">
         <div className="mt-12 flex justify-center gap-16 ">
           <Link
@@ -37,7 +36,6 @@ const MyPage: NextPage = () => {
           </Link>
         </div>
         <WordSearchForm />
-        {/* <LoginForm /> */}
         <div className="mt-16 flex flex-wrap justify-center gap-12">
           {searchedBookmarks.length > 0 ? (
             searchedBookmarks?.map((bookmark, i) => (
@@ -48,7 +46,7 @@ const MyPage: NextPage = () => {
           )}
         </div>
       </div>
-    </DefaultLayout>
+    </ProtectRoute>
   )
 }
 
