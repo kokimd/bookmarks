@@ -3,7 +3,7 @@ import { DefaultLayout } from 'src/components/ui-parts/layout/DefaultLayout'
 import { ArticleCard } from 'src/components/ui-parts/ArticleCard'
 import { NoDataMessage } from 'src/components/ui-parts/NoDataMessage'
 import { WordSearchForm } from 'src/components/ui-parts/form/WordSearchForm'
-import { useWordSearch } from 'src/components/hooks/useWordSearch'
+import { useWordSearch } from 'src/hooks/useWordSearch'
 
 const Home: NextPage = () => {
   const { searchedBookmarks } = useWordSearch()

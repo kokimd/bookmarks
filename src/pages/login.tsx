@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { useValidateSession } from 'src/components/hooks/useValidateSession'
+import { useValidateSession } from 'src/hooks/useValidateSession'
 import { LoginForm } from 'src/components/ui-parts/form/LoginForm'
 import { DefaultLayout } from 'src/components/ui-parts/layout/DefaultLayout'
 

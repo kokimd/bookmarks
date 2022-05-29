@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { useWordSearch } from 'src/components/hooks/useWordSearch'
+import { useWordSearch } from 'src/hooks/useWordSearch'
 import { Link } from 'src/components/ui-elements/Link'
 import { ArticleCard } from 'src/components/ui-parts/ArticleCard'
 import { WordSearchForm } from 'src/components/ui-parts/form/WordSearchForm'

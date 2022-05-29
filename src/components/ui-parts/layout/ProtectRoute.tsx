@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useEffect } from 'react'
-import { useValidateSession } from 'src/components/hooks/useValidateSession'
+import { useValidateSession } from 'src/hooks/useValidateSession'
 import { DefaultLayout } from 'src/components/ui-parts/layout/DefaultLayout'
 
 type Props = {

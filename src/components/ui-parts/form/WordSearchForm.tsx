@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from 'react'
-import { useWordSearch } from 'src/components/hooks/useWordSearch'
+import { useWordSearch } from 'src/hooks/useWordSearch'
 import { SearchIcon } from 'src/components/ui-elements/Icons/SearchIcon'
 
 export const WordSearchForm: FC = () => {
