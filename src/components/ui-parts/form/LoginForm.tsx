@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { FormProvider } from 'react-hook-form'
-import { useAuthMutation } from 'src/components/hooks/reactQuery/useMutateAuth'
+import { useMutateAuth } from 'src/hooks/reactQuery/useMutateAuth'
 import { Button } from '../../ui-elements/button/Button'
 import { Typography } from '../../ui-elements/Typography/Typography'
 import { TextInput } from './TextInput'
 
 export const LoginForm: FC = () => {
-  const { isLogin, setIsLogin, methods, authSubmit } = useAuthMutation()
+  const { isLogin, setIsLogin, methods, authSubmit } = useMutateAuth()
 
   return (
     <div className="mx-auto my-12 w-full rounded-lg bg-white p-8 text-center shadow-md md:w-1/2 lg:w-1/4">
