@@ -6,8 +6,10 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { LoginSchema } from 'src/utils/validationSchema'
+import { useRouter } from 'next/router'
 
 export const useMutateAuth = () => {
+  const router = useRouter()
   const [isLogin, setIsLogin] = useState(true)
 
   // 新規登録
@@ -20,6 +22,9 @@ export const useMutateAuth = () => {
     {
       onError: (err: ResponseError) => {
         alert(err.message)
+      },
+      onSuccess: () => {
+        router.push('/')
       },
     },
   )
@@ -35,6 +40,9 @@ export const useMutateAuth = () => {
       onError: (err: ResponseError) => {
         alert(err.message)
       },
+      onSuccess: () => {
+        router.push('/')
+      },
     },
   )
 
@@ -42,6 +50,7 @@ export const useMutateAuth = () => {
   const logout = async () => {
     const { error } = await supabase.auth.signOut()
     if (error) throw new Error(error.message)
+    router.push('/')
   }
 
   const defaultValues = {
