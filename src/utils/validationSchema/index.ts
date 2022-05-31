@@ -22,7 +22,6 @@ export const LoginSchema = yup.object().shape({
     .min(8, PASSWORD_MIN)
     .max(255, `255文字${MAX}`)
     .matches(/(?=.*[a-z])/, PASSWORD_LOWER) // 英字
-    .matches(/(?=.*[0-9])/, PASSWORD_NUMBER) //数字
     .matches(/^[0-9a-zA-Z]+$/, PASSWORD) // 半角英数字
     .required(`パスワード${REQUIRED}`),
 })
