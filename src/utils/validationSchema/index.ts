@@ -12,12 +12,21 @@ const PASSWORD = 'パスワードは半角英数字で入力してください�
 
 // ログイン
 export const LoginSchema = yup.object().shape({
-  // username: yup.string().required(`ユーザー名${REQUIRED}`),
-  email: yup //
+  email: yup.string().email(EMAIL).required(`メールアドレス${REQUIRED}`),
+  password: yup
     .string()
-    .email(EMAIL)
-    .required(`メールアドレス${REQUIRED}`),
-  password: yup //
+    .min(8, PASSWORD_MIN)
+    .max(255, `255文字${MAX}`)
+    .matches(/(?=.*[a-z])/, PASSWORD_LOWER) // 英字
+    .matches(/^[0-9a-zA-Z]+$/, PASSWORD) // 半角英数字
+    .required(`パスワード${REQUIRED}`),
+})
+
+// 新規登録
+export const RegisterSchema = yup.object().shape({
+  username: yup.string().required(`ユーザー名${REQUIRED}`),
+  email: yup.string().email(EMAIL).required(`メールアドレス${REQUIRED}`),
+  password: yup
     .string()
     .min(8, PASSWORD_MIN)
     .max(255, `255文字${MAX}`)

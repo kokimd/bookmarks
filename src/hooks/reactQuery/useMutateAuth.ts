@@ -5,7 +5,7 @@ import { AuthData } from 'src/utils/types'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { LoginSchema } from 'src/utils/validationSchema'
+import { LoginSchema, RegisterSchema } from 'src/utils/validationSchema'
 import { useRouter } from 'next/router'
 import { useAuth } from 'src/hooks/auth/useAuth'
 
@@ -17,13 +17,13 @@ export const useMutateAuth = () => {
   // 新規登録
   const registerMutate = useMutation(
     async (payload: AuthData) => {
-      const { email, password } = payload
+      const { email, password, username } = payload
       const { error, user } = await supabase.auth.signUp({
         email,
         password,
       })
       if (error) throw new Error(`${error.status}「${error.message}」`)
-      if (user) register(user.id, 'aaa')
+      if (user) register(user.id, username)
     },
     {
       onError: (err: ResponseError) => {
@@ -68,7 +68,7 @@ export const useMutateAuth = () => {
 
   const methods = useForm<AuthData>({
     defaultValues,
-    resolver: yupResolver(LoginSchema),
+    resolver: yupResolver(isLogin ? LoginSchema : RegisterSchema),
   })
 
   const authSubmit = (payload: AuthData) => {

@@ -18,14 +18,14 @@ export const LoginForm: FC = () => {
           className="mt-16 flex flex-col gap-8"
           onSubmit={methods.handleSubmit(authSubmit)}
         >
-          {/* {!isLogin && (
+          {!isLogin && (
             <TextInput
               type="username"
               placeholder="Username"
               inputName={'username'}
               classes={['py-2']}
             />
-          )} */}
+          )}
           <TextInput
             type="email"
             placeholder="Email"
