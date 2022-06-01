@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import useStore from 'src/store'
+import { useSession } from './auth/useSession'
 
 export const useValidateSession = () => {
   const router = useRouter()
   const { pathname, push } = router
-  const session = useStore((state) => state.session)
+  const { session } = useSession()
 
   const pushToLogin = () => {
     if (!session) push('/login')

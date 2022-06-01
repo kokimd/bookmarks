@@ -2,11 +2,11 @@ import { FC } from 'react'
 import { useMutateAuth } from 'src/hooks/reactQuery/useMutateAuth'
 import { Button } from 'src/components/ui-elements/button/Button'
 import { Link } from 'src/components/ui-elements/Link'
-import useStore from 'src/store'
+import { useSession } from 'src/hooks/auth/useSession'
 
 export const Header: FC = () => {
   const { logout } = useMutateAuth()
-  const session = useStore((state) => state.session)
+  const { session } = useSession()
 
   return (
     <header className="w-full bg-white">
