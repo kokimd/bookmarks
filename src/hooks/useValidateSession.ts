@@ -5,10 +5,10 @@ import { useSession } from './auth/useSession'
 export const useValidateSession = () => {
   const router = useRouter()
   const { pathname, push } = router
-  const { session } = useSession()
+  const { session, standby } = useSession()
 
   const pushToLogin = () => {
-    if (!session) push('/login')
+    if (!session && standby) push('/login')
   }
 
   const pushToHome = () => {
@@ -17,7 +17,7 @@ export const useValidateSession = () => {
 
   useEffect(() => {
     pushToHome()
-  }, [])
+  }, [session])
 
   return { pushToLogin }
 }

@@ -5,6 +5,8 @@ import create from 'zustand'
 type State = {
   session: Session | null
   setSession: (payload: Session | null) => void
+  standBy: boolean | null
+  setStandBy: (payload: boolean) => void
   searchWord: string
   setSearchWord: (payload: string) => void
   deleteSearchWord: () => void
@@ -19,6 +21,8 @@ type State = {
 const useStore = create<State>((set) => ({
   session: null,
   setSession: (payload) => set({ session: payload }),
+  standBy: false,
+  setStandBy: (payload) => set({ standBy: payload }),
   searchWord: '',
   setSearchWord: (payload) => set({ searchWord: payload }),
   deleteSearchWord: () => set({ searchWord: '' }),
