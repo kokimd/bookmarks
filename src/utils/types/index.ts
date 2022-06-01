@@ -9,7 +9,7 @@ export type Bookmark = {
 }
 
 export type AuthData = {
-  // username?: string
+  username?: string
   email: string
   password: string
 }
