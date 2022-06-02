@@ -12,15 +12,15 @@ import { MarkdownWithLabel } from 'src/components/ui-parts/form/withLabel/Markdo
 import { SelectWithLabel } from 'src/components/ui-parts/form/withLabel/hooksForm/SelectWithLabel'
 
 const options = [
-  { value: '1', label: 'JavaScript' },
-  { value: '2', label: 'TypeScript' },
-  { value: '3', label: 'React' },
+  { value: '1', name: 'JavaScript' },
+  { value: '2', name: 'TypeScript' },
+  { value: '3', name: 'React' },
 ]
 
 type FormData = {
   url: string
   title: string
-  categories: Array<{ value: ''; label: '' }>
+  categories: []
   comprehension: 0 | 1 | 2 | 3 | 4
   isRead: boolean
 }
