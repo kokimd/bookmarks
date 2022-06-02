@@ -1,12 +1,12 @@
-import axios from 'axios'
+import { AxiosResponse } from 'axios'
+import { API } from './config'
 
-export const fetcherGet = (url: string, token?: string) =>
-  axios
-    .get(url, {
-      headers: { Authorization: 'Bearer' + ' ' + token },
-      // params: JSON.parse(params),
-    })
-    .then((res) => {
+export const fetcherGet = <T>(url: string, token?: string) =>
+  API.get<T>(url, {
+    headers: { Authorization: 'Bearer' + ' ' + token },
+    // params: JSON.parse(params),
+  })
+    .then((res: AxiosResponse<T>) => {
       console.log('>>> GET [success]', url, res.data)
       return res
     })
