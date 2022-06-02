@@ -20,13 +20,13 @@ export const ArticleCard: FC<Props> = ({ bookmark }) => {
         <div className="flex gap-4">
           {categories.map((category, i) => (
             <Typography
-              onClick={() => setSearchWord(category.label)}
-              key={category.value + i}
+              onClick={() => setSearchWord(category.name)}
+              key={i}
               classes={[
                 'bg-asset-orange text-white font-semibold py-2 px-2 rounded-md shadow-md hover:opacity-50 cursor-pointer',
               ]}
             >
-              {category.label}
+              {category.name}
             </Typography>
           ))}
         </div>
