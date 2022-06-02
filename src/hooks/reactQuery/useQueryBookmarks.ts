@@ -1,5 +1,4 @@
 import { useQuery } from 'react-query'
-import { API } from 'src/utils/network/config'
 import { fetcherGet } from 'src/utils/network/fetcher'
 import { Bookmark } from 'src/utils/types'
 
