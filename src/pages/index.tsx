@@ -12,10 +12,9 @@ const Home: NextPage = () => {
     <DefaultLayout title="Home">
       <div className="container">
         <WordSearchForm />
-        {/* <LoginForm /> */}
         <div className="mt-16 flex flex-wrap justify-center gap-12">
           {searchedBookmarks.length > 0 ? (
-            searchedBookmarks?.map((bookmark, i) => (
+            searchedBookmarks.map((bookmark, i) => (
               <ArticleCard bookmark={bookmark} key={bookmark.id + i} />
             ))
           ) : (
