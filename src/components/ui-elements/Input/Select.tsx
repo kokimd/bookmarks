@@ -54,8 +54,8 @@ const customStyles = {
 
 //TODO:APIから取得する・propsで渡す
 const options = [
-  { value: '1', name: 'フロントエンド' },
-  { value: '2', name: 'バックエンド' },
+  { value: '1', label: 'フロントエンド' },
+  { value: '2', label: 'バックエンド' },
 ]
 
 const SelectMemo = (): JSX.Element => {

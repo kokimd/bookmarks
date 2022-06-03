@@ -2,7 +2,7 @@ export type Bookmark = {
   id: string
   url: string
   title: string
-  categories: { value: number; name: string }[]
+  categories: { id: number; label: string }[]
   isRead: boolean
   comprehension: number
   memo: string

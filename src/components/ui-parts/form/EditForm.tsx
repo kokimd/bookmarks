@@ -10,17 +10,13 @@ import { TextInputWithLabel } from 'src/components/ui-parts/form/withLabel/hooks
 import { ToggleSwitchWithLabel } from 'src/components/ui-parts/form/withLabel/hooksForm/ToggleSwitchWithLabel'
 import { MarkdownWithLabel } from 'src/components/ui-parts/form/withLabel/MarkdownWithLabel'
 import { SelectWithLabel } from 'src/components/ui-parts/form/withLabel/hooksForm/SelectWithLabel'
-
-const options = [
-  { value: '1', name: 'JavaScript' },
-  { value: '2', name: 'TypeScript' },
-  { value: '3', name: 'React' },
-]
+import { useMutateBookmarks } from 'src/hooks/reactQuery/useMutateBookmarks'
+import { useRouter } from 'next/router'
 
 type FormData = {
   url: string
   title: string
-  categories: []
+  categories: [{ value: number; label: string }] | []
   comprehension: 0 | 1 | 2 | 3 | 4
   isRead: boolean
 }
@@ -28,6 +24,9 @@ type FormData = {
 export const EditForm: FC = () => {
   const [memo, setMemo] = useState('')
   const [isPreview, setIsPreview] = useState(false)
+
+  const router = useRouter()
+
   const defaultValues: FormData = {
     url: '',
     title: '',
@@ -36,6 +35,8 @@ export const EditForm: FC = () => {
     isRead: false,
   }
 
+  const { createBookmarkMutate } = useMutateBookmarks()
+
   const methods = useForm<FormData>({
     defaultValues,
     resolver: yupResolver(EditSchema),
@@ -43,8 +44,13 @@ export const EditForm: FC = () => {
 
   // TODO:API
   const onSubmit = (data: FormData) => {
+    const sendCategory = data.categories.map((category) => ({
+      id: category.value,
+      label: category.label,
+    }))
     const submitData = {
       ...data,
+      categories: sendCategory,
       comprehension: data.comprehension - 1,
       memo,
     }
@@ -52,7 +58,8 @@ export const EditForm: FC = () => {
       alert('未読の記事は理解度を0以外に設定出来ません')
       return
     }
-    console.log(submitData)
+    createBookmarkMutate.mutate(submitData)
+    router.push('/mypage/bookmarks')
   }
   return (
     <FormProvider {...methods}>
