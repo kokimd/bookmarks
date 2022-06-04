@@ -16,17 +16,17 @@ export const ArticleCard: FC<Props> = ({ bookmark }) => {
 
   return (
     <div className="relative flex w-5/12 items-center justify-between rounded-md bg-white p-8 shadow-md">
-      <div className="flex flex-col gap-8 pr-8">
+      <div className="flex w-full flex-col gap-8 pr-8">
         <div className="flex gap-4">
           {categories.map((category, i) => (
             <Typography
-              onClick={() => setSearchWord(category.name)}
+              onClick={() => setSearchWord(category.label)}
               key={i}
               classes={[
                 'bg-asset-orange text-white font-semibold py-2 px-2 rounded-md shadow-md hover:opacity-50 cursor-pointer',
               ]}
             >
-              {category.name}
+              {category.label}
             </Typography>
           ))}
         </div>
@@ -39,8 +39,16 @@ export const ArticleCard: FC<Props> = ({ bookmark }) => {
         >
           {title}
         </Link>
+        <Typography
+          variant={'body2'}
+          classes={[
+            'text-white py-1 px-2 rounded-full font-bold bg-asset-green float-right cursor-pointer hover:opacity-',
+          ]}
+        >
+          MEMO
+        </Typography>
       </div>
-      <div className="flex h-28 w-28 items-center justify-center rounded-lg bg-asset-white shadow-sm">
+      <div className="flex h-28 w-36 items-center justify-center rounded-lg bg-asset-white shadow-sm">
         <Image
           src={'/assets/dogs/dog-7.png'}
           width={50}

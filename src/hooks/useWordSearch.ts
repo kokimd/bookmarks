@@ -28,7 +28,7 @@ export const useWordSearch = () => {
       const categoryFilteredList = bookmarks.filter((data) =>
         data.categories.some(
           (category) =>
-            category.name.toUpperCase() === searchWord.toUpperCase(),
+            category.label.toUpperCase() === searchWord.toUpperCase(),
         ),
       )
       // マージし、重複を取り除く
