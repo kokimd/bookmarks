@@ -7,12 +7,18 @@ export const useSetSession = () => {
   const session = useStore((state) => state.session)
   const setSession = useStore((state) => state.setSession)
   const setStandBy = useStore((state) => state.setStandBy)
+  const setToken = useStore((state) => state.setToken)
+  const setUserId = useStore((state) => state.setUserId)
 
   useEffect(() => {
     setStandBy(false)
     setSession(supabase.auth.session())
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
+      if (session) {
+        const id = session.user?.id
+        setUserId(id)
+      }
     })
     setTimeout(() => {
       setStandBy(true)
@@ -21,12 +27,13 @@ export const useSetSession = () => {
 
   useEffect(() => {
     const login = async (id: string | undefined) =>
-      await API.post('/auth/signin', { id })
-        .then((res) => console.log(res.data))
+      await API.post<{ accessToken: string }>('/auth/signin', { id })
+        .then((res) => setToken(res.data.accessToken))
         .catch((error) => console.log(error))
     if (session) {
       const id = session.user?.id
       login(id)
+      setUserId(id)
     }
-  }, [session])
+  }, [session, setUserId])
 }
