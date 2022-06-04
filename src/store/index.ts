@@ -5,8 +5,12 @@ import create from 'zustand'
 type State = {
   session: Session | null
   setSession: (payload: Session | null) => void
+  userId: string | undefined
+  setUserId: (payload: string | undefined) => void
   standBy: boolean | null
   setStandBy: (payload: boolean) => void
+  token: string
+  setToken: (payload: string) => void
   searchWord: string
   setSearchWord: (payload: string) => void
   deleteSearchWord: () => void
@@ -21,8 +25,12 @@ type State = {
 const useStore = create<State>((set) => ({
   session: null,
   setSession: (payload) => set({ session: payload }),
+  userId: '',
+  setUserId: (payload) => set({ userId: payload }),
   standBy: false,
   setStandBy: (payload) => set({ standBy: payload }),
+  token: '',
+  setToken: (payload) => set({ token: payload }),
   searchWord: '',
   setSearchWord: (payload) => set({ searchWord: payload }),
   deleteSearchWord: () => set({ searchWord: '' }),
@@ -32,7 +40,7 @@ const useStore = create<State>((set) => ({
   editedBookmark: {
     url: '',
     title: '',
-    categories: [{ value: '', label: '' }],
+    categories: [],
     isRead: false,
     comprehension: 0,
     memo: '',
@@ -53,7 +61,7 @@ const useStore = create<State>((set) => ({
       editedBookmark: {
         url: '',
         title: '',
-        categories: [{ value: '', label: '' }],
+        categories: [],
         isRead: false,
         comprehension: 0,
         memo: '',
