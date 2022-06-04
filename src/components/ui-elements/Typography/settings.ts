@@ -14,8 +14,8 @@ const VariantSetting: Map[] = [
   { key: 'main2', class: ['text-8xl', 'font-bold'] },
   { key: 'subtitle1', class: ['prose', 'font-semibold'] },
   { key: 'subtitle2', class: ['prose', 'prose-sm', 'font-semibold'] },
-  { key: 'body1', class: ['prose-sm,'] },
-  { key: 'body2', class: ['prose', 'prose-sm'] },
+  { key: 'body1', class: ['prose-sm'] },
+  { key: 'body2', class: ['text-xs'] },
   { key: 'error', class: ['text-sm', 'text-asset-red'] },
   { key: 'label', class: ['text-lg', 'font-semibold'] },
 ]
